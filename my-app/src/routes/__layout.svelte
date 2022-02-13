@@ -7,7 +7,7 @@ import '../css/global.css'
 </script>
 <header>
 
-<h1>Это шапка</h1>
+<h1>HEADER</h1>
 </header>
 <main>
   <Nav />
@@ -25,13 +25,17 @@ import '../css/global.css'
 
         text-align: center;
     }
+
+    main{
+         text-align: center;
+         max-width: 1280px;
+         margin: 0 auto;
+      
+     }
+     
     footer{
         text-align: center;
         margin-top: 50px;
     }
-     main{
-         text-align: center;
-         max-width: 1280px;
-      
-     }
+    
 </style>
