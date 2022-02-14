@@ -1,10 +1,10 @@
 <script>
-    // your script goes here
+
 
 import PostList from "./PostList.svelte";
 
 </script>
-<PostList/>
+<PostList />
 
 
 <style>

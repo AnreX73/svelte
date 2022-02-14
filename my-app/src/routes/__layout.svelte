@@ -28,7 +28,7 @@ import '../css/global.css'
 
     main{
          text-align: center;
-         max-width: 1280px;
+         max-width: 968px;
          margin: 0 auto;
       
      }

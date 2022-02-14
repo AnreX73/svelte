@@ -5,6 +5,7 @@
 <a href="/"><button>MAIN PAGE</button></a>
 <a href="/about"><button>ABOUT</button></a>
 <a href="/contacts"><button>CONTACTS</button></a>
+<a href="/"><button>PRODUCTS</button></a>
 <a href="/posts"><button>POSTS</button></a>
 </div>
 
@@ -24,7 +25,7 @@
    
         margin: auto;
         display: grid;
-        grid-template-columns: repeat(auto-fit,minmax(100px, 200px)) ;
+        grid-template-columns: repeat(auto-fit,minmax(100px, 150px)) ;
         gap: 20px;
         
         justify-content: center;
