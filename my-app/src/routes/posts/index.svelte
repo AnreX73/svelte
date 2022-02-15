@@ -1,10 +1,11 @@
 <script>
-
+import PostForm from "./PostForm.svelte";
 
 import PostList from "./PostList.svelte";
 
 </script>
-<PostList />
+<PostForm/>
+<PostList   />
 
 
 <style>

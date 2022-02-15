@@ -1,8 +1,8 @@
 <script>
-    // your script goes here
+ import {fade, slide,scale} from 'svelte/transition'
 </script>
 
-<h2>ABOUT</h2>
+<h2 in:scale out:slide >ABOUT</h2>
 
 <style>
     /* your styles go here */
