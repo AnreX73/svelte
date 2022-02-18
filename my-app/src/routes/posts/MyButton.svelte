@@ -29,5 +29,8 @@
         color: white;
         box-shadow: none;
     }
+    .secondary{
+        display:none;
+    }
 </style>
 
