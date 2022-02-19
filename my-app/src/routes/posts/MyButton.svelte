@@ -1,10 +1,11 @@
 <script>
+import {fade, slide,scale} from 'svelte/transition'
    export let style = 'primary'
    export let type = 'button'
    export let disabled = false
    export let title = 'Отправить'
 </script>
-<button {type} {disabled} class = {style}>{title} 
+<button transition:fade {type} {disabled} class = {style} >{title} 
 <slot ></slot>
 
 </button>
@@ -12,6 +13,10 @@
        button {
         justify-self: flex-end;
         align-self:center;
+        
+    }
+    .primary{
+        display: inline;
         background: none;
         color: teal;
         padding:7px;
@@ -20,9 +25,6 @@
         cursor: pointer; 
         box-shadow: 1px 1px 3px  teal ;
     }
-    .primary{
-        display: inline;
-    }
    
     .primary:hover{
         background: teal;
@@ -30,7 +32,14 @@
         box-shadow: none;
     }
     .secondary{
-        display:none;
+        display: inline;
+        background: none;
+        color: grey;
+        padding:7px;
+        border: 1px solid grey;
+        border-radius: 7px;   
+        
+        
     }
 </style>
 

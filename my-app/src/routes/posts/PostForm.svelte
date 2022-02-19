@@ -1,29 +1,35 @@
 <script>
 import {fade, slide,scale} from 'svelte/transition'
 import MyButton from "./MyButton.svelte"
+import Rating from './Rating.svelte'
 let body = ''
+let btnDisabled = false
 let btnClass = 'secondary'
 let min = 10
 let massage = ''
 const handleInput =() =>{
     if(body.trim().length <= min){
         massage = 'текст должен быть больше '+ min + ' символов'
+        btnClass = 'secondary'
+        
     }else{
         massage = ''
         btnClass = 'primary'
+        btnDisabled = false
 
     }
 
 }
 </script>
-
+<h2>Напишите сообщение</h2>
 <form >
+    <Rating />
 <div class="input-group" transition:slide>
-<input type="text" on:input={handleInput} bind:value = {body} placeholder="введите пост">
-<MyButton style ={btnClass} type="submit" />
+<input  type="text" on:input={handleInput} bind:value = {body} placeholder="введите пост">
+<MyButton style ={btnClass} type="submit" disabled = {btnDisabled}  />
 
 </div>
-<p>{massage}</p>
+<p class = "massage">{massage}</p>
 
 </form>
 <style>
@@ -40,8 +46,18 @@ const handleInput =() =>{
     }
     input{
         border: none;
+       
+    }
+    input:focus{
+        outline: none ;
+       
+    }
+    .massage{
+        color:red;
+        font-size:bold;
 
     }
+ 
   
 </style>
 
