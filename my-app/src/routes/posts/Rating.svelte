@@ -1,8 +1,11 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
     import {fade, slide,scale} from 'svelte/transition'
+    const dispatch = createEventDispatcher()
     let selected = 10
-    const onChange= ()=>{
-        console.log(1)
+    const onChange= (e)=>{
+        selected = e.currentTarget.value
+        dispatch ('rating-select', selected)
     }
 </script>
 <ul class="rating" transition:scale> 

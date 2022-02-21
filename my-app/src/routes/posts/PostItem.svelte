@@ -10,14 +10,14 @@ const delPost = (postId) => {
 
 
 </script>
-<div class="post-item" in:fade out:slide >
+<div class="post-item" in:fade='{{duration: 500}}' out:slide >
 
  
     <div class="post-rating" >{post.rating}</div>
-    <div class="post-id">{post.id}</div>
+   
   
    <div class="title-body">
-    <div class="title">{post.title}</div>
+    <div class="title">ID: {post.id}</div>
 
     <div class="post-body">{post.body}</div>
   </div>
@@ -31,7 +31,7 @@ const delPost = (postId) => {
         padding:15px;
         background-color: #fff;
         display:grid;
-        grid-template-columns: 0.2fr 0.3fr 7fr 1fr;
+        grid-template-columns: 0.2fr  7fr 1fr;
         border: 1px solid teal;
         border-radius: 10px;
        

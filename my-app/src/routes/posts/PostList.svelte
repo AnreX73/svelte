@@ -2,6 +2,7 @@
 import {fade, slide,scale} from 'svelte/transition'
 import PostItem from "./PostItem.svelte";
 import PostStat from "./PostStat.svelte";
+import PostForm from "./PostForm.svelte";
 
 const  postDelete = (e) =>{
     const postId = e.detail
@@ -10,6 +11,10 @@ const  postDelete = (e) =>{
 $:count = posts.length;
 $:average = (posts.reduce((a,{rating}) =>a+rating,0)/posts.length).toFixed(2)
 
+const addPost =(e) =>{
+    const newPost = e.detail
+    posts = [newPost,...posts]
+}
   let posts = [
       {
           id:1,
@@ -31,7 +36,7 @@ $:average = (posts.reduce((a,{rating}) =>a+rating,0)/posts.length).toFixed(2)
       },
   ]
 </script>
-
+<PostForm on:add-post = {addPost} />
 <h3 transition:slide> Список постов </h3>
 <PostStat {count} {average}/>
 <div class="all-posts" transition:slide >
