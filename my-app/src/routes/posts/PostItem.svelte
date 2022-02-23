@@ -38,11 +38,7 @@ const delPost = (postId) => {
         border-radius: 10px;
        
     }
-    .post-id{
-        color: teal;
-        font-weight:bold;
-        align-self:center; 
-    }
+   
   
    .post-rating{
        justify-self: flex-start;
