@@ -1,10 +1,11 @@
 <script>
-
 import {v4 as uuidv4} from 'uuid'
-import {createEventDispatcher} from 'svelte'
+import {PostStore} from "./../stores/poststore.js";
 import {fade, slide,scale} from 'svelte/transition'
 import MyButton from "./MyButton.svelte"
 import Rating from './Rating.svelte'
+
+
 let rating = 10
 let body = ''
 let btnDisabled = true
@@ -25,9 +26,7 @@ const handleInput =() =>{
         btnDisabled = false
 
     }
-
 }
-const dispatch = createEventDispatcher();
 const handleSubmit = () =>{
     if(body.trim().length > min){
         const newPost = {
@@ -35,24 +34,26 @@ const handleSubmit = () =>{
             body : body,
             rating: +rating,
         }
-        dispatch('add-post',newPost)
-        body = ''
+        PostStore.update((currentPost) =>{
+            return [newPost,...currentPost]
+        })
+       
     }
 }
-
-
 </script>
+
+
 <h2>Напишите сообщение</h2>
 <form on:submit|preventDefault={handleSubmit}>
     <Rating on:rating-select={handleSelect}/>
 <div class="input-group" transition:slide>
 <input  type="text" on:input={handleInput} bind:value = {body} placeholder="введите пост">
 <MyButton style ={btnClass} type="submit" disabled = {btnDisabled}  />
-
 </div>
 <p class = "massage">{massage}</p>
-
 </form>
+
+
 <style>
     form {
         margin-top: 20px;
@@ -77,8 +78,6 @@ const handleSubmit = () =>{
         color:red;
         font-size:bold;
 
-    }
- 
-  
+    } 
 </style>
 

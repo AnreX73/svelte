@@ -1,6 +1,7 @@
 <script>
     import { createEventDispatcher } from 'svelte';
     import {fade, slide,scale} from 'svelte/transition'
+    
     const dispatch = createEventDispatcher()
     let selected = 10
     const onChange= (e)=>{
@@ -8,6 +9,8 @@
         dispatch ('rating-select', selected)
     }
 </script>
+
+
 <ul class="rating" transition:scale> 
    <li>
        <input type="radio" id="num1" name="rating" value="1" on:change={onChange} checked={selected===1} />
@@ -51,6 +54,7 @@
    </li>
     
 </ul>
+
 
 <style>
      li {

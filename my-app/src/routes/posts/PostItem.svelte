@@ -1,11 +1,13 @@
 <script>
 import {fade, slide,scale} from 'svelte/transition'
-import {flip} from 'svelte/animate'
-import { createEventDispatcher } from 'svelte';
+import {PostStore} from "./../stores/poststore.js";
 export let post = [];
-const dispatch = createEventDispatcher();
+
 const delPost = (postId) => {
-    dispatch('deletePost',postId)   
+    PostStore.update((currentPost) =>{
+        return currentPost.filter((post)=> post.id != postId)
+
+    }) 
 }
 
 
