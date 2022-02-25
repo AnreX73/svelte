@@ -5,7 +5,7 @@
 <a href="/"><button>MAIN PAGE</button></a>
 <a href="/about"><button>ABOUT</button></a>
 <a href="/contacts"><button>CONTACTS</button></a>
-<a href="/"><button>PRODUCTS</button></a>
+<a href="/polls"><button>POLLS</button></a>
 <a href="/posts"><button>POSTS</button></a>
 </div>
 
