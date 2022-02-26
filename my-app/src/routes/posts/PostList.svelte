@@ -6,6 +6,7 @@ import PostStat from "./PostStat.svelte";
 import PostForm from "./PostForm.svelte";
 
 let posts = []
+let postTitle = 'СПИСОК ПОСТОВ'
 
 
 
@@ -19,13 +20,15 @@ const addPost =(e) =>{
 
 <PostForm on:add-post = {addPost} />
 
-<h3 transition:slide> Список постов </h3>
+<h3 transition:slide> {postTitle} </h3>
 
 <PostStat />
 
 <div class="all-posts" transition:slide >
     {#each $PostStore as post (post.id)}
         <PostItem {post}  />
+    {:else}
+    <p>НЕТ НИХЕРА</p>
     {/each}  
 </div>
 

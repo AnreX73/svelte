@@ -1,8 +1,11 @@
 <script>
  import {fade, slide,scale} from 'svelte/transition'
+ let bgcolor = 'teal'
 </script>
-<h2 transition:scale>POLLS</h2>
+<h2 transition:scale>ГОЛОСУЕМ ЗА...</h2>
+
+
 <style>
-    /* your styles go here */
+   
 </style>
 

@@ -36,7 +36,9 @@ const handleSubmit = () =>{
         }
         PostStore.update((currentPost) =>{
             return [newPost,...currentPost]
+           
         })
+        body = ''
        
     }
 }
