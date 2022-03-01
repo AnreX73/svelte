@@ -7,7 +7,7 @@ import '../css/global.css'
 </script>
 <header>
 
-<h1>HEADER</h1>
+<h1>SMART STUDIO</h1>
 </header>
 <main>
   <Nav />
@@ -21,6 +21,10 @@ import '../css/global.css'
 </footer>
 
 <style>
+    h1{
+      color:teal; 
+      text-shadow: 2px 2px 1px black;
+    }
     header{
 
         text-align: center;

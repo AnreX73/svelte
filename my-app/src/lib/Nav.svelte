@@ -2,11 +2,11 @@
     // your script goes here
 </script>
 <div class="nav">
-<a href="/"><button>MAIN PAGE</button></a>
-<a href="/about"><button>ABOUT</button></a>
-<a href="/contacts"><button>CONTACTS</button></a>
-<a href="/polls"><button>POLLS</button></a>
-<a href="/posts"><button>POSTS</button></a>
+<a href="/"><button>ГЛАВНАЯ</button></a>
+<a href="/about"><button>О НАС</button></a>
+<a href="/contacts"><button>КОНТАКТЫ</button></a>
+<a href="/polls"><button>ОПРОСЫ</button></a>
+<a href="/posts"><button>ПОСТЫ</button></a>
 </div>
 
 <style>
@@ -20,6 +20,8 @@
         color: aliceblue;
         cursor: pointer;
         border-radius: 5px;
+        box-shadow: 2px 2px 1px black;
+      
     }
     .nav{
    
@@ -29,7 +31,7 @@
         gap: 20px;
         
         justify-content: center;
-      
+        
 
     }
 </style>
