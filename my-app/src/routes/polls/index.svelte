@@ -1,37 +1,33 @@
 <script>
- import {fade, slide,scale} from 'svelte/transition'
+import {fade, slide,scale} from 'svelte/transition'
 import AddForm from './AddForm.svelte';
+import Tabs from './Tabs.svelte';
 
- let item = ['Опросы', 'Добавить новый опрос'];
- let activeItem = 'Опросы';
+
+ let items = ['Активные Опросы', 'Добавить Hовый Oпрос'];
+ let activeItem = 'Активные Опросы';
+
+ const changeTab = (e)=>{
+    activeItem = e.detail
+ }
 
 </script>
 
 <h2 transition:scale>ГОЛОСУЕМ ЗА...</h2>
-<div class="tabs">
-<ul>
-   {#each item as item}
-       <li>{item}</li>
-   {/each}
-           
-</ul>
+<div  transition:scale class="container">
+<Tabs {activeItem} {items}  on:tabChange={changeTab}/>
+{#if activeItem==='Активные Опросы'}
+    <p>Активные Опросы</p>
+{:else}
+   <AddForm/>
+{/if}
 
 </div>
 
 
+
+
 <style>
-    .tabs{
-        max-width: 960px;
-    }
-    ul{
-        display:flex;
-        justify-content:space-evenly;
-        align-items:center;
-        padding:10px;
-       
-    }
-   li{
-    list-style-type: none;   
-   }
+ 
 </style>
 

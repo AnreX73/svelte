@@ -21,8 +21,13 @@
         cursor: pointer;
         border-radius: 5px;
         box-shadow: 2px 2px 1px black;
-      
     }
+
+      button:active{
+        background: red;
+      }  
+      
+    
     .nav{
    
         margin: auto;
