@@ -13,7 +13,7 @@ import Tabs from './Tabs.svelte';
 
 </script>
 
-<h2 transition:scale>ГОЛОСУЕМ ЗА...</h2>
+<h2 transition:slide>ГОЛОСУЕМ ЗА...</h2>
 <div  transition:scale class="container">
 <Tabs {activeItem} {items}  on:tabChange={changeTab}/>
 {#if activeItem==='Активные Опросы'}

@@ -1,11 +1,11 @@
 <script>
-    // your script goes here
+import {fade, slide,scale} from 'svelte/transition'
 
 import Nav from "$lib/Nav.svelte";
 import '../css/global.css'
 
 </script>
-<header>
+<header transition:slide>
 
 <h1>SMART STUDIO</h1>
 </header>
@@ -15,7 +15,7 @@ import '../css/global.css'
     <slot></slot>
 </main>
 
-<footer>
+<footer transition:slide>
 <h4>Сделано в SMARTSTUDIO</h4>
 
 </footer>
