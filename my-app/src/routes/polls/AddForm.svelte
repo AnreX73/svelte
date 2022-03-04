@@ -1,11 +1,15 @@
 <script>
-import MyButton from "../posts/MyButton.svelte";
+import {v4 as uuidv4} from 'uuid'
+import{createEventDispatcher} from 'svelte'
+import {PollStore} from "./../stores/pollstore.js";
 import {fade, slide,scale} from 'svelte/transition';
 
 let fields = {
     question : '',
     answerA: '',
     answerB: '',
+    votesA: 0,
+    votesB: 0,
 };
 
 let errors = {
@@ -15,6 +19,7 @@ let errors = {
 };
 
 let valid = false;
+const dispatch = createEventDispatcher()
 
 const submitHandler = () =>{
     valid = true;
@@ -37,10 +42,28 @@ const submitHandler = () =>{
     }else{
         errors.answerB = ''
     }
-
-        console.log(fields);
- 
-    
+    if (valid){
+        const newPoll = {
+            id: uuidv4(),
+            question:fields.question,
+            answerA:fields.answerA,
+            answerB:fields.answerB,
+            votesA:0,
+            votesB:0,
+            
+        }
+        PollStore.update((currentPoll) =>{
+            return [newPoll,...currentPoll]  
+        })
+       
+        fields.question='';
+        fields.answerA='';
+        fields.answerB='';
+       dispatch('change',newPoll)
+       console.log(newPoll)
+        
+    }
+           
 };
 
 </script>
@@ -91,6 +114,20 @@ const submitHandler = () =>{
    label{
        justify-self: flex-start;
        color: #555;
+   }
+   button{
+       justify-self: center;
+       padding: 10px;
+       border:1px solid teal;
+       border-radius:5px;
+       box-shadow: 1px 1px 3px  teal ;
+       cursor: pointer;
+   }
+   .error{
+       font-weight: bold;
+       font-size: 12px;
+       color: red;
+       margin-top: 5px;
    }
 </style>
 

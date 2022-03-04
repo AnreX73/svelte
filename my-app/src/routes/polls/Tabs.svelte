@@ -25,6 +25,7 @@ const dispatch = createEventDispatcher()
     .active{
         color:red;
         border-bottom: 2px solid red;
+        padding:5px;
     }
     .tabs{
         max-width: 960px;
@@ -40,6 +41,7 @@ const dispatch = createEventDispatcher()
    li{
      color: #555;
      cursor: pointer;
+     padding:10px;
    }
 </style>
 

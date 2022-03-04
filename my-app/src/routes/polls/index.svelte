@@ -1,7 +1,9 @@
 <script>
 import {fade, slide,scale} from 'svelte/transition'
+
 import AddForm from './AddForm.svelte';
 import Tabs from './Tabs.svelte';
+import Polllist from './Polllist.svelte';
 
 
  let items = ['Активные Опросы', 'Добавить Hовый Oпрос'];
@@ -11,15 +13,17 @@ import Tabs from './Tabs.svelte';
     activeItem = e.detail
  }
 
+
+
 </script>
 
 <h2 transition:slide>ГОЛОСУЕМ ЗА...</h2>
 <div  transition:scale class="container">
 <Tabs {activeItem} {items}  on:tabChange={changeTab}/>
 {#if activeItem==='Активные Опросы'}
-    <p>Активные Опросы</p>
+    <Polllist/>
 {:else}
-   <AddForm/>
+   <AddForm />
 {/if}
 
 </div>
