@@ -7,13 +7,15 @@ import Polllist from './Polllist.svelte';
 
 
  let items = ['Активные Опросы', 'Добавить Hовый Oпрос'];
- let activeItem = 'Активные Опросы';
+ let activeItem = 'Активные Опросы' ;
 
  const changeTab = (e)=>{
     activeItem = e.detail
  }
 
-
+const tabChange = (e) =>{
+   activeItem = e.detail
+}
 
 </script>
 
@@ -23,7 +25,7 @@ import Polllist from './Polllist.svelte';
 {#if activeItem==='Активные Опросы'}
     <Polllist/>
 {:else}
-   <AddForm />
+   <AddForm  on:add-poll = {tabChange} />
 {/if}
 
 </div>
