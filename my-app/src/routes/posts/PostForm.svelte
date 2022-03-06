@@ -62,11 +62,12 @@ const handleSubmit = () =>{
     }
     .input-group{
         padding:15px;
-        background-color: #fff;
+        background:rgb(0,0,0,0.03);
+        box-shadow: 1px 2px 2px rgba(0,0,0,0.5);
+        border-radius: 6px;
         display:grid;
         grid-template-columns: 5fr 1fr;
-        border: 1px solid teal;
-        border-radius: 10px; 
+       
     }
     input{
         border: none;

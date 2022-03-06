@@ -2,13 +2,14 @@
 import{createEventDispatcher} from 'svelte'
 export let items;
 export let activeItem ;
+import {fade, slide,scale} from 'svelte/transition';
 
 const dispatch = createEventDispatcher()
 </script>
 
 
 
-<div class="tabs">
+<div class="tabs" transition:slide>
 <ul>
 {#each items as item}
     <li on:click={ ()=> dispatch ('tabChange', item) }>

@@ -124,12 +124,13 @@ const submitHandler = () =>{
        border-radius: 6px;;
        cursor: pointer;
        border: none;
+       background: white;
    }
    .a-color{
-        background: rgba(255, 0, 0, 0.2);
+        background: rgba(255, 0, 0, 0.1);
     }
     .b-color{
-        background: rgba(0, 128, 128, 0.2);
+        background: rgba(0, 128, 128, 0.1);
     }
    .error{
        font-weight: bold;

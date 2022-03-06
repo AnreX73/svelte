@@ -3,7 +3,7 @@
 </script>
 <div class="nav">
 <a href="/"><button>ГЛАВНАЯ</button></a>
-<a href="/about"><button>О НАС</button></a>
+<a href="/todo"><button>TO DO</button></a>
 <a href="/contacts"><button>КОНТАКТЫ</button></a>
 <a href="/polls"><button>ОПРОСЫ</button></a>
 <a href="/posts"><button>ПОСТЫ</button></a>

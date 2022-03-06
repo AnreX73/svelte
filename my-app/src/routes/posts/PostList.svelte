@@ -1,6 +1,6 @@
 <script>
 import {PostStore} from "./../stores/poststore.js";
-import {fade, slide,scale} from 'svelte/transition'
+import {fade, slide,scale,fly} from 'svelte/transition'
 import PostItem from "./PostItem.svelte";
 import PostStat from "./PostStat.svelte";
 import PostForm from "./PostForm.svelte";
@@ -38,7 +38,7 @@ const addPost =(e) =>{
        display: grid;
        grid-template-columns: 1fr;
        gap: 15px;
-       background-color: azure;
+      
        padding:15px;
        border-radius: 10px;   
    }

@@ -31,11 +31,13 @@ const delPost = (postId) => {
 <style>
     .post-item{
         padding:15px;
-        background-color: #fff;
+        
         display:grid;
         grid-template-columns: 0.2fr  7fr 1fr;
-        border: 1px solid teal;
-        border-radius: 10px;
+       
+        background:rgb(0,0,0,0.03);
+        box-shadow: 1px 2px 2px rgba(0,0,0,0.5);
+        border-radius: 6px;
        
     }
    
