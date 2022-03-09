@@ -1,6 +1,9 @@
 <script>
 import PollCard from "$lib/PollCard.svelte";
 import {PollStore} from "./../stores/pollstore.js";
+import {fade, slide,scale} from 'svelte/transition';
+import {flip} from "svelte/animate";
+
 let percentVotesA;
 let percentVotesB;
 
@@ -16,10 +19,6 @@ let percentVotesB;
   }else{
     percentVotesB = 'нет голосов'
   }
-
-  
-
-  
 
   const upVotes = (option,id)=>{
     PollStore.update(currentPoll =>{
@@ -38,21 +37,27 @@ let percentVotesB;
 
   })
 }   
+const delPoll = (pollId) => {
+    PollStore.update((currentPoll) =>{
+        return currentPoll.filter((poll)=> poll.id != pollId)
+
+    }) 
+}
 </script>
 
 <PollCard>
-<div class="poll"> 
+<div class="poll" in:scale out:fade > 
     <p>Количество голосов {totalVotes}</p>      
     <h3>{poll.question}</h3>
-    <div class="answer " on:click={upVotes('a',poll.id)}>
+    <div class="answer " on:click={upVotes('a', poll.id)}>
         <div class="percent a-color" style="width:{percentVotesA}"></div>
         <span>{poll.answerA}  ({poll.votesA}) {percentVotesA} </span>
     </div>
-    <div class="answer " on:click={upVotes('b',poll.id)}> 
+    <div class="answer " on:click={upVotes('b', poll.id)}> 
         <div class="percent b-color" style="width:{percentVotesB}"></div>
         <span>{poll.answerB} ({poll.votesB}) {percentVotesB} </span>
     </div>
-    <button class="delete">Удалить опрос</button>
+    <button class="delete" on:click={delPoll(poll.id)}>Удалить опрос</button>
 </div>
 
 </PollCard>
@@ -71,7 +76,6 @@ let percentVotesB;
     }
     .answer{
         margin-top: 5px;
-       
         cursor: pointer;
         position: relative;
         background: rgb(235, 235, 235);
