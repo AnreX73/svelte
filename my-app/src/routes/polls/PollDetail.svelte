@@ -1,8 +1,9 @@
 <script>
 import PollCard from "$lib/PollCard.svelte";
 import {PollStore} from "./../stores/pollstore.js";
-import {fade, slide,scale} from 'svelte/transition';
-import {flip} from "svelte/animate";
+
+
+
 
 let percentVotesA;
 let percentVotesB;
@@ -19,6 +20,9 @@ let percentVotesB;
   }else{
     percentVotesB = 'нет голосов'
   }
+
+  
+
 
   const upVotes = (option,id)=>{
     PollStore.update(currentPoll =>{
@@ -46,7 +50,7 @@ const delPoll = (pollId) => {
 </script>
 
 <PollCard>
-<div class="poll" in:scale out:fade > 
+<div class="poll"  > 
     <p>Количество голосов {totalVotes}</p>      
     <h3>{poll.question}</h3>
     <div class="answer " on:click={upVotes('a', poll.id)}>

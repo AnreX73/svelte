@@ -60,7 +60,7 @@ const submitHandler = () =>{
         fields.question='';
         fields.answerA='';
         fields.answerB='';
-        activeItem = 'Активные Опросы'
+        activeItem = 'АКТИВНЫЕ ОПРОСЫ'
        dispatch('add-poll', activeItem)
        
         
