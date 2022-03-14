@@ -1,6 +1,8 @@
 <script>
 import PollCard from "$lib/PollCard.svelte";
 import {PollStore} from "./../stores/pollstore.js";
+import { tweened } from 'svelte/motion';
+import { cubicOut } from 'svelte/easing';
 
 
 
@@ -11,15 +13,29 @@ let percentVotesB;
   export let poll; 
   $: totalVotes = poll.votesA + poll.votesB;
   $:if(poll.votesA!=0) {
-      percentVotesA = Math.round(100/totalVotes * poll.votesA)+'%';
+      percentVotesA = Math.round(100/totalVotes * poll.votesA);
   }else{
-    percentVotesA = 'нет голосов'
+    percentVotesA = 0
   }
   $:if(poll.votesB!=0) {
-      percentVotesB = Math.round(100/totalVotes * poll.votesB)+'%';
+      percentVotesB = Math.round(100/totalVotes * poll.votesB);
   }else{
-    percentVotesB = 'нет голосов'
+    percentVotesB = 0
   }
+
+  const tweenedA = tweened(0,{
+		duration: 1000,
+		easing: cubicOut
+	});
+  const tweenedB = tweened(0,{
+		duration: 1000,
+		easing: cubicOut
+	});
+ 
+
+  $: tweenedA.set(percentVotesA);
+  $: tweenedB.set(percentVotesB);
+ 
 
   
 
@@ -54,11 +70,11 @@ const delPoll = (pollId) => {
     <p>Количество голосов {totalVotes}</p>      
     <h3>{poll.question}</h3>
     <div class="answer " on:click={upVotes('a', poll.id)}>
-        <div class="percent a-color" style="width:{percentVotesA}"></div>
+        <div class="percent a-color" style="width:{$tweenedA}%"></div>
         <span>{poll.answerA}  ({poll.votesA}) {percentVotesA} </span>
     </div>
     <div class="answer " on:click={upVotes('b', poll.id)}> 
-        <div class="percent b-color" style="width:{percentVotesB}"></div>
+        <div class="percent b-color" style="width:{$tweenedB}%"></div>
         <span>{poll.answerB} ({poll.votesB}) {percentVotesB} </span>
     </div>
     <button class="delete" on:click={delPoll(poll.id)}>Удалить опрос</button>

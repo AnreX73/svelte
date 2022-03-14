@@ -30,7 +30,7 @@ const handleInput =() =>{
 const handleSubmit = () =>{
     if(body.trim().length > min){
         const newPost = {
-            id: $PostStore.length+1,
+            id: uuidv4(),
             body : body,
             rating: +rating,
         }
