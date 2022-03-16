@@ -2,7 +2,7 @@
 	import { quintOut } from 'svelte/easing';
 	import { crossfade } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
-
+	import {fade, slide,scale} from 'svelte/transition';
 	const [send, receive] = crossfade({
 		fallback(node, params) {
 			const style = getComputedStyle(node);
@@ -46,14 +46,14 @@
 	}
 </script>
 
-<div class='board'>
+<div class='board' transition:slide>
 	<input
 		class="new-todo"
 		placeholder="что нужно сделать?"
 		on:keydown={event => event.key === 'Enter' && add(event.target)}
 	>
 
-
+	<div class="todos-board">
 	<div class='left'>
 		<h2>задачи</h2>
 		{#each todos.filter(t => !t.done) as todo (todo.id)}
@@ -64,7 +64,7 @@
 			>
 				<input type=checkbox bind:checked={todo.done}>
 				{todo.description}
-				<button on:click="{() => remove(todo)}">x</button>
+				<button on:click="{() => remove(todo)}">X</button>
 			</label>
 		{/each}
 	</div>
@@ -79,67 +79,85 @@
 			>
 				<input type=checkbox bind:checked={todo.done}>
 				{todo.description}
-				<button on:click="{() => remove(todo)}">x</button>
+				<button on:click="{() => remove(todo)}">X</button>
 			</label>
 		{/each}
 	</div>
 </div>
+</div>
 
 <style>
 	.new-todo {
-		font-size: 1.4em;
+		font-size: 1.2em;
 		width: 100%;
 		margin: 2em 0 1em 0;
+		padding:10px;
+		border-radius: 8px;
+		
 	}
 
 	.board {
-		max-width: 36em;
+		max-width: 960px;
 		margin: 0 auto;
+		padding: 10px;	
+	}
+	.todos-board{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		justify-items: center;
+		gap: 10px;
+		
 	}
 
 	.left, .right {
-		float: left;
-		width: 50%;
-		padding: 0 1em 0 0;
-		box-sizing: border-box;
+		
+		width:24rem;
+		background-color: rgb(248, 244, 244);
+		padding:15px;
+		border-radius: 8px;
+		box-shadow:1px 2px 4px;		
 	}
 
 	h2 {
 		font-size: 2em;
-		font-weight: 200;
+		font-weight: bold;
 		user-select: none;
 	}
 
 	label {
+		display: grid;
+		grid-template-columns:1fr 7fr 1fr;
+		justify-content: space-between;
 		top: 0;
 		left: 0;
-		display: block;
 		font-size: 1em;
 		line-height: 1;
-		padding: 0.5em;
-		margin: 0 auto 0.5em auto;
-		border-radius: 2px;
+		padding: 15px;
+		margin: 0 auto 1em auto;
+		border-radius: 8px;
 		background-color: #eee;
 		user-select: none;
+		box-shadow:1px 1px 2px;	
 	}
 
 	input { margin: 0 }
 
 	.right label {
-		background-color: rgb(180,240,100);
+		background-color: teal;
+		color:azure;
+		box-shadow:1px 2px 3px black;	
 	}
 
 	button {
-		float: right;
 		height: 1em;
-		box-sizing: border-box;
-		padding: 0 0.5em;
+		box-sizing: content-box;
 		line-height: 1;
 		background-color: transparent;
 		border: none;
-		color: rgb(170,30,30);
+		color:red;
 		opacity: 0;
 		transition: opacity 0.2s;
+		cursor: pointer;
 	}
 
 	label:hover button {

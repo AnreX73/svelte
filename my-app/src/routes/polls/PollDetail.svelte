@@ -71,11 +71,11 @@ const delPoll = (pollId) => {
     <h3>{poll.question}</h3>
     <div class="answer " on:click={upVotes('a', poll.id)}>
         <div class="percent a-color" style="width:{$tweenedA}%"></div>
-        <span>{poll.answerA}  ({poll.votesA}) {percentVotesA} </span>
+        <span>{poll.answerA}  ({poll.votesA}) -  {percentVotesA} % </span>
     </div>
     <div class="answer " on:click={upVotes('b', poll.id)}> 
         <div class="percent b-color" style="width:{$tweenedB}%"></div>
-        <span>{poll.answerB} ({poll.votesB}) {percentVotesB} </span>
+        <span>{poll.answerB} ({poll.votesB}) -  {percentVotesB} %</span>
     </div>
     <button class="delete" on:click={delPoll(poll.id)}>Удалить опрос</button>
 </div>

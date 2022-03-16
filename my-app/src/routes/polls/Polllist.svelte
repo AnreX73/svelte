@@ -13,6 +13,7 @@ import {flip} from "svelte/animate";
     <div class="polls" transition:slide|local animate:flip={{duration:600}}>
         <PollDetail {poll} />
     </div>
+    {:else} <span>НЕТ ОПРОСОВ</span>
     {/each}
     
 </div>
