@@ -18,11 +18,12 @@
 
 <h2> {pokeman.name}</h2>
 <img  class="card-img" src={pokeman.sprites['front_default']} alt={pokeman.name} >
-<h3>РОСТ {pokeman.height}</h3>
-<h3>ВЕС {pokeman.weight}</h3>
-<h3>СТИХИЯ {type}</h3>
+<div class="poc-info">
+<h3>РОСТ  {pokeman.height} | ВЕС  {pokeman.weight} | СТИХИЯ {type}</h3>
+
+</div>
 
 <style>
-    
+  
 </style>
 

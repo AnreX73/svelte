@@ -112,7 +112,7 @@
 	.left, .right {
 		
 		width:24rem;
-		background-color: rgb(248, 244, 244);
+		background-color: rgb(2, 121, 121, 0.1);
 		padding:15px;
 		border-radius: 8px;
 		box-shadow:1px 2px 4px;		
