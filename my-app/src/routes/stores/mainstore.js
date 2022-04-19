@@ -8,8 +8,9 @@ const fetchSmart = async () => {
 	const loadedSmart = data.map((data) => {
 		return {
 			name: data.title,
-			id: data.id,
-			image_url:data.menu_image
+			cat: data.cat,
+			image_url:data.menu_image,
+			id:data.id
 			
 		};
 	});
